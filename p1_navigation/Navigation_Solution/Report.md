@@ -45,6 +45,13 @@ The agent was trained on a Windows machine (64bit) without the use of GPU.
 
 ![Plot_of_Rewards](https://github.com/ioasou/deep-reinforcement-learning/tree/master/p1_navigation/Navigation_Solution/plot_of_rewards.png?raw=true)
 
+**Training Results**
+```
+Episode 100	Average Score: 5.00
+Episode 200	Average Score: 12.45
+Episode 210	Average Score: 13.04
+Environment solved in 110 episodes!	Average Score: 13.04
+```
 
 ### Ideas for Future Work
 
