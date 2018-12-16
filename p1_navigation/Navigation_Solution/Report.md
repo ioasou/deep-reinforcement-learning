@@ -32,7 +32,7 @@ The hyper parameters of the main DQN algorithm are listed below (the values can 
 The hyper parameters of the agent are listed below (the values can be found in [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/tree/master/p1_navigation/Navigation_Solution/Solution.ipynb)):
 
 - BUFFER_SIZE: replay buffer size
-- BATCH_SIZ: mini batch size
+- BATCH_SIZE: mini batch size
 - GAMMA: discount factor
 - TAU: for soft update of target parameters
 - LR: learning rate for optimizer
