@@ -19,7 +19,7 @@ The main idea behind the Q-Learning is that we if we had an action-value functio
 
 Additionally we will be using experience replay memory for training our DQN. It stores the transitions that the agent observes, allowing us to reuse this data later. By sampling from it randomly, the transitions that build up a batch are decorrelated. It has been shown that this greatly stabilizes and improves the DQN training procedure.
 
-The Q-Network consists of one input layer, two fully connected hidden layes with Relu activation followed by a fully conected output layer.
+The Q-Network consists of one fully connected input layer, two fully connected hidden layes with Relu activation followed by a fully conected output layer.
 
 The hyper parameters of the main DQN algorithm are listed below (the values can be found in [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/tree/master/p1_navigation/Navigation_Solution/Solution.ipynb)):
 
@@ -31,12 +31,12 @@ The hyper parameters of the main DQN algorithm are listed below (the values can 
 
 The hyper parameters of the agent are listed below (the values can be found in [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/tree/master/p1_navigation/Navigation_Solution/Solution.ipynb)):
 
-- BUFFER_SIZE: replay buffer size
 - BATCH_SIZE: mini batch size
 - GAMMA: discount factor
 - TAU: for soft update of target parameters
 - LR: learning rate for optimizer
 - UPDATE_EVERY: how often to update the network
+- BUFFER_SIZE: replay buffer size
 
 The agent was trained on a Windows machine (64bit) without the use of GPU.
 
@@ -55,3 +55,7 @@ Environment solved in 110 episodes!	Average Score: 13.04
 
 ### Ideas for Future Work
 
+1. Investigate performance of Prioritised Experience Replay, Double DQN, Dueling DQN and Rainbow.
+2. Investigate effect of alternative neural network architectures and optimisation algorithm e.g. Huber Loss.
+3. Investigate effect of hyper parameters and automate selection approach.
+4. Implement solution using raw pixels.
