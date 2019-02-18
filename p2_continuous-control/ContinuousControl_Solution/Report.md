@@ -53,10 +53,10 @@ The agent was trained on a Ubuntu machine (64bit) with the use of GPU.
 
 **Training Results (Last 3 Episodes)**
 ```
-Episode 100	Average Score: 5.00
-Episode 200	Average Score: 12.45
-Episode 210	Average Score: 13.04
-Environment solved in 110 episodes!	Average Score: 13.04
+Episode 112	Mean over an Episode: 35.9	Moving Average: 29.6
+Episode 113	Mean over an Episode: 35.0	Moving Average: 29.9
+Episode 114	Mean over an Episode: 35.2	Moving Average: 30.1
+Agent trained successfully!	Moving Average =30.1 over the last 100 episodes
 ```
 
 ### Ideas for Future Work
