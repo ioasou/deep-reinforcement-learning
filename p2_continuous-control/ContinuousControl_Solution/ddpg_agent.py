@@ -18,10 +18,6 @@ LR_CRITIC = 1e-3        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
 LEARN_EVERY = 20        # learning timestep interval
 LEARN_NUM = 10          # number of learning passes
-OU_SIGMA = 0.2          # Ornstein-Uhlenbeck noise parameter
-OU_THETA = 0.15         # Ornstein-Uhlenbeck noise parameter
-EPSILON = 1.0           # explore->exploit noise process added to act step
-EPSILON_DECAY = 1e-6    # decay rate for noise process
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -40,7 +36,6 @@ class Agent():
         self.state_size = state_size
         self.action_size = action_size
         self.seed = random.seed(random_seed)
-        self.epsilon = EPSILON
 
         # Actor Network (w/ Target Network)
         self.actor_local = Actor(state_size, action_size, random_seed).to(device)
@@ -77,7 +72,7 @@ class Agent():
             action = self.actor_local(state).cpu().data.numpy()
         self.actor_local.train()
         if add_noise:
-            action += self.epsilon * self.noise.sample()
+            action += self.noise.sample()
         return np.clip(action, -1, 1)
 
     def reset(self):
@@ -126,7 +121,6 @@ class Agent():
         self.soft_update(self.actor_local, self.actor_target, TAU)
 
         # ---------------------------- update noise ---------------------------- #
-        self.epsilon -= EPSILON_DECAY
         self.noise.reset()
 
     def soft_update(self, local_model, target_model, tau):
@@ -145,7 +139,7 @@ class Agent():
 class OUNoise:
     """Ornstein-Uhlenbeck process."""
 
-    def __init__(self, size, seed, mu=0., theta=OU_THETA, sigma=OU_SIGMA):
+    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.2):
         """Initialize parameters and noise process.
         Params
         ======

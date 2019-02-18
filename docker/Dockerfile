@@ -68,6 +68,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         pydot \
         graphviz \
         gym \
+        unityagents \
         && \
     ldconfig && \
     apt-get clean && \
