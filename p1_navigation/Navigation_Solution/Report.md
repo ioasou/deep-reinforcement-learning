@@ -43,7 +43,7 @@ The agent was trained on a Windows machine (64bit) without the use of GPU.
 
 ### Plot of Rewards
 
-![Plot_of_Rewards](https://github.com/ioasou/deep-reinforcement-learning/tree/master/p1_navigation/Navigation_Solution/plot_of_rewards.png?raw=true)
+![Plot_of_Rewards](plot_of_rewards.png?raw=true)
 
 **Training Results**
 ```
