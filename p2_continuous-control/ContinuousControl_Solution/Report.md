@@ -8,7 +8,7 @@ The objective of this project is to train a Deep Deterministic Policy Gradient (
 
 A [README](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p2_continuous-control/README.md) file can be found in the root of the repository.
 
-Detailed description of the enviroment solution can be found in the [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/tree/master/p1_navigation/Navigation_Solution/Solution.ipynb) Juputer script. 
+Detailed description of the enviroment solution can be found in the [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p2_continuous-control/ContinuousControl_Solution/Solution.ipynb) Juputer script. 
 
 The solution is based on the [DDPG exersice](https://github.com/ioasou/deep-reinforcement-learning/blob/master/ddpg-pendulum/DDPG.ipynb).
 
