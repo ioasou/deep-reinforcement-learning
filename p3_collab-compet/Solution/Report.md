@@ -19,7 +19,7 @@ The solution is based on the [DDPG exersice](https://github.com/ioasou/deep-rein
 
 DDPG is model-free reinforcement learning algorithm which consists of two main components: an actor which directly estimates the policy required to achieve the desired goal and a critic which assess the policy provided by the actor. In other words DDPG combines policy-based (actor) and value-based (critic) methods to improve the overall pefromance of the agent. The policy is updated after each episode. One important aspect of the algorithm is that it has a memory, called replay buffer, where its interactions with its environment are recorded and can be “replayed” afterward. By sampling from it randomly, the transitions that build up a batch are decorrelated. It has been shown that this greatly stabilizes and improves the training procedure. DDPG is an off-policy learning algorithm, meaning that actions performed during training come from a policy distinct from the learnt optimal policy by the actor. This happens in order to gain diverse state-action data outside of the narrow distribution that would be seen by the optimal policy, and thus increase robustness. We use a standard method of achieving this in the context of continuous reinforcement learning methods: our exploration policy is formed by adding discrete Ornstein-Uhlenbeck process noise to the optimal policy.
 
-The actor network takes as inputs the states of the enviroment and returns the policy that is supposed to achieve the desired goal. The actor network consists of 3 fully connected layer. 
+The actor network takes as inputs the states of the enviroment and returns the policy that is supposed to achieve the desired goal. The actor network consists of 3 fully connected layer.
 
 The critic network takes as inputs the states of the enviroment and the output of the actor network with the purpose of evaluating  whether the actor policy is optimal. The critic network consits of 3 fully connected layers. 
 
@@ -41,8 +41,6 @@ The hyper parameters of the agent are listed below (the values can be found in [
 - LR_CRITIC: learning rate for critic
 - BUFFER_SIZE: replay buffer size
 - WEIGHT_DECAY: L2 weight decay
-- LEARN_EVERY: learning timestep interval
-- LEARN_NUM: number of learning passes
 
 The agent was trained on a Ubuntu machine (64bit) with the use of GPU.
 
