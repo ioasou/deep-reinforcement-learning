@@ -4,15 +4,15 @@
 
 ### Introduction
 
-The objective of this project is to train a Deep Deterministic Policy Gradient (DDPG) agent to control robotic arms using Unity's [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) enviroment to maintain in contact with the green spheres.
+he objective of this project is to train two agents to control rackets to bounce a ball over a net using Unity's [Tennis](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#tennis) enviroment. For this purpose, a modified version of the original [DDPG](https://arxiv.org/pdf/1509.02971.pdf) algorithm will be used.
 
-A [README](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p2_continuous-control/README.md) file can be found in the root of the repository.
+A [README](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p3_collab-compet/README.md) file can be found in the root of the repository.
 
-Detailed description of the enviroment solution can be found in the [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p2_continuous-control/ContinuousControl_Solution/Solution.ipynb) Juputer script. 
+Detailed description of the enviroment solution can be found in the [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p3_collab-compet/Solution/Solution.ipynb) Juputer script. 
 
 The solution is based on the [DDPG exersice](https://github.com/ioasou/deep-reinforcement-learning/blob/master/ddpg-pendulum/DDPG.ipynb).
 
-**External References:** [DDPG Algorithm - DeepMind](https://arxiv.org/pdf/1509.02971.pdf), [Learning to Drive Smoothly in Minutes](https://towardsdatascience.com/learning-to-drive-smoothly-in-minutes-450a7cdb35f4), [Learning to Drive in a Day](https://arxiv.org/pdf/1807.00412.pdf)
+**External References:** [DDPG Algorithm - DeepMind](https://arxiv.org/pdf/1509.02971.pdf), [MADDPG Algorithm - DeepMind](https://papers.nips.cc/paper/7217-multi-agent-actor-critic-for-mixed-cooperative-competitive-environments.pdf)
 
 
 ### Learning Algorithm: Deep Deterministic Policy Gradient (DDPG)
@@ -23,7 +23,7 @@ The actor network takes as inputs the states of the enviroment and returns the p
 
 The critic network takes as inputs the states of the enviroment and the output of the actor network with the purpose of evaluating  whether the actor policy is optimal. The critic network consits of 3 fully connected layers. 
 
-The hyper parameters of the main DDPG algorithm are listed below (the values can be found in [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p2_continuous-control/ContinuousControl_Solution/Solution.ipynb)):
+The hyper parameters of the main DDPG algorithm are listed below (the values can be found in [Solution.ipynb](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p3_collab-compet/Solution/Solution.ipynb)):
 
 - n_episodes: maximum number of training episodes
 - max_t: maximun number of timesteps per episode (episode duration)
@@ -32,7 +32,7 @@ The hyper parameters of the main DDPG algorithm are listed below (the values can
 - print_every: frequency at which the results are printed
 - train_mode: when true the agent will start training
 
-The hyper parameters of the agent are listed below (the values can be found in [ddpg_agent.py](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p2_continuous-control/ContinuousControl_Solution/ddpg_agent.py)):
+The hyper parameters of the agent are listed below (the values can be found in [ddpg_agent.py](https://github.com/ioasou/deep-reinforcement-learning/blob/master/p3_collab-compet/Solution/ddpg_agent.py)):
 
 - BATCH_SIZE: mini batch size
 - GAMMA: discount factor
@@ -53,15 +53,15 @@ The agent was trained on a Ubuntu machine (64bit) with the use of GPU.
 
 **Training Results (Last 3 Episodes)**
 ```
-Episode 112	Mean over an Episode: 35.9	Moving Average: 29.6
-Episode 113	Mean over an Episode: 35.0	Moving Average: 29.9
-Episode 114	Mean over an Episode: 35.2	Moving Average: 30.1
-Agent trained successfully!	Moving Average =30.1 over the last 100 episodes
+Episode 1700	Mean over an Episode: 0.20	Moving Average: 0.26
+Episode 1800	Mean over an Episode: 0.10	Moving Average: 0.21
+Episode 1900	Mean over an Episode: 0.15	Moving Average: 0.45
+Agents trained successfully!	Moving Average =0.52 over the last 100 episodes
 ```
 
 ### Ideas for Future Work
 
 1. Investigate different ramdomisation approaches for selecting random actions.
 2. Investigate performance of Prioritised Experience Replay.
-3. Investigate perfomance of different algorithms such as [D4PG](https://arxiv.org/abs/1804.08617.pdf) and [TRPO](https://arxiv.org/abs/1502.05477.pdf).
+3. Investigate perfomance of different algorithms such as [MADDPG](https://papers.nips.cc/paper/7217-multi-agent-actor-critic-for-mixed-cooperative-competitive-environments.pdf), [D4PG](https://arxiv.org/abs/1804.08617.pdf) and [TRPO](https://arxiv.org/abs/1502.05477.pdf).
 4. Investigate the effect of hyper parameters and automate selection approach.
